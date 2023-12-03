@@ -1,11 +1,33 @@
 package com.example.homework14.parcel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import kotlin.math.pow
+import kotlin.math.round
+import kotlin.math.roundToInt
+import kotlin.random.Random
 
 class ParcelViewModel: ViewModel() {
-    val parcelList = mutableListOf<Parcel>(
-        Parcel(1, "Magari Zmani", 10.00, Parcel.Status.DELIVERED),
-        Parcel(2, "Magari2 Zmani", 12.00, Parcel.Status.INPROGRESS),
-        Parcel(3, "Magari3 Zmani", 13.00, Parcel.Status.DELIVERED)
-    )
+    private val _parcelFlow = MutableStateFlow<List<Parcel>>(emptyList())
+    val parcelFlow: StateFlow<List<Parcel>> = _parcelFlow
+    private var states = mutableListOf<Parcel.Status>()
+    private var randomIndex: Int = 0
+
+
+    fun addParcel() {
+        viewModelScope.launch {
+            states = mutableListOf(Parcel.Status.DELIVERED, Parcel.Status.INPROGRESS)
+            randomIndex = Random.nextInt(states.size);
+            _parcelFlow.value = parcelFlow.value.toMutableList().also {
+                it.add(
+                    Parcel(Random.nextInt(1,100), "Magari Zmani", round(Random.nextDouble(10.0,100.0)) , states[randomIndex]),
+                )
+            }
+        }
+    }
 }

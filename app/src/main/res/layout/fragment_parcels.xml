@@ -9,10 +9,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/parcelRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"/>
+        android:layout_height="600dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddParcel"
+        android:layout_gravity="center"
         android:text="AddParcel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

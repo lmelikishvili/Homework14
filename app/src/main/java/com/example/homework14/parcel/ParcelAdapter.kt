@@ -39,6 +39,7 @@ class ParcelAdapter: ListAdapter<Parcel,ParcelAdapter.ParcelVH>(ParcelDiffutil()
             }
             if(parcel.status == Parcel.Status.DELIVERED){
                 binding.tvStatus.text = "DELIVERED"
+                binding.tvStatus.setTextColor(Color.parseColor("#008000"))
             }else{
                 binding.tvStatus.text = "IN PROGRESS"
                 binding.tvStatus.setTextColor(Color.parseColor("#f25454"))
