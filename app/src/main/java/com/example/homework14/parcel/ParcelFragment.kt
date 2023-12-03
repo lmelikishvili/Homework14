@@ -19,8 +19,6 @@ class ParcelFragment : BaseFragment<FragmentParcelsBinding>(FragmentParcelsBindi
         adapter.submitList(viewModel.parcelList)
     }
 
-
-
     override fun setupListeners() {
         binding.btnAddParcel.setOnClickListener(){
             addParcel()
