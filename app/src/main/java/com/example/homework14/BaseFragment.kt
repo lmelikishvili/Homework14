@@ -1,4 +1,4 @@
-package com.example.homework13
+package com.example.homework14
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,4 +33,5 @@ abstract class BaseFragment<VB: ViewBinding>(private val inflate: Inflater<VB>) 
     }
 
     abstract fun setup()
+    abstract fun setupListeners()
 }

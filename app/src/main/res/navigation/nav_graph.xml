@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/itemsFragment"
-        android:name="com.example.homework14.ItemsFragment"
+        android:name="com.example.homework14.parcel.ParcelFragment"
         android:label="fragment_items"
-        tools:layout="@layout/fragment_items" />
+        tools:layout="@layout/fragment_parcels" />
 </navigation>
